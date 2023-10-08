@@ -1,6 +1,6 @@
 import os
 
-class Config():
+class ConfigObject():
     ISSERVER: bool = os.environ.get("secret_key") is str
     
     SECRET_KEY: str
@@ -11,4 +11,4 @@ class Config():
         else:
             SECRET_KEY = "supersecretkey"
             
-config = Config()
+config = ConfigObject()
