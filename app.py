@@ -9,5 +9,3 @@ app.secret_key = config.SECRET_KEY
 @app.route("/")
 def index():
     return render_template(f"index.html")
-
-app.run()
