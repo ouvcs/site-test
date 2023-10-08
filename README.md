@@ -4,3 +4,4 @@
 1. **HTML and CSS**
     1. Menu and Footer
     2. Meta Tags
+    3. Config
