@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" theme="{{ session['theme'] }}">
+<html lang="ru" theme="{{ session['account']['theme'] }}">
     <head>
         <!-- Basic Meta -->
         <meta charset="UTF-8">
@@ -65,11 +65,11 @@
                 <a href="/valutes/" class="menu-item">Валюты</a>
                 <a href="/documents/" class="menu-item">Документы</a>
                 <a href="/profile/" class="menu-item menu-item-last">
-                    <img src="{{ session['photo'] }}" class="menu-photo">
-                    <div class="menu-name">{{ session['name'].split(' ')[0] }}</div>
+                    <img src="{{ session['account']['photo'] }}" class="menu-photo">
+                    <div class="menu-name">{{ session['account']['name'].split(' ')[0] }}</div>
 
                     <script type="text/javascript">
-                        document.querySelector("#ouvc-transport").innerHTML = "{{ session['name'].split(' ')[0] }}";
+                        document.querySelector("#ouvc-transport").innerHTML = "{{ session['account']['name'].split(' ')[0] }}";
                         document.querySelector("#ouvc-transport").style.fontSize = getComputedStyle(document.querySelector(".menu-item")).fontSize;
                         document.querySelector(".menu-name").style.setProperty('--to-expand', document.querySelector("#ouvc-transport").clientWidth+"px");
                         document.querySelector("#ouvc-transport").style.fontSize = "";
@@ -96,9 +96,11 @@
             </div>
             <div class="footer-column">
                 <a href="https://vk.com/vgovernments" class="footer-item">ВК</a>
-                <a href="/" class="footer-item">Телеграмм</a>
+                <a href="/" class="footer-item">Телеграм</a>
                 <br>
                 <a href="/" class="footer-item">Отладка</a>
+                <br>
+                <a href="/profile/" class="footer-item">{{ session['id'] }}</a>
             </div>
         </footer>
     </body>
