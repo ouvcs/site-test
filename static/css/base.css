@@ -1,0 +1,370 @@
+@layer theme, animations, defenition, base, page;
+
+@layer theme {
+    :root {
+        --primary-color: #ffffff;
+        --primary-color-g1: #e2e2e2;
+        --primary-color-g2: #c4c4c4;
+        --primary-color-g3: #a6a6a6;
+        --primary-color-g4: #888888;
+        --primary-color-g5: #6b6b6b;
+        --primary-color-g6: #4d4d4d;
+        --primary-color-g7: #3e3e3e;
+        --primary-color-g8: #2f2f2f;
+        --primary-color-g9: #111111;
+        
+        --secondary-color: #87ceeb;
+        --secondary-color-g1: #7abad4;
+        --secondary-color-g2: #74b0c9;
+        --secondary-color-g3: #6da6bd;
+        --secondary-color-g4: #6092a6;
+        --secondary-color-g5: #527d8e;
+        --secondary-color-g6: #4c7383;
+        --secondary-color-g7: #456977;
+        --secondary-color-g8: #37545f;
+        --secondary-color-g9: #1c2b30;
+    }
+}
+
+@layer animations {
+    @keyframes rotate {
+        0% {
+            transform: rotateZ(0deg);
+        }
+        33% {
+            transform: rotateZ(120deg);
+        }
+        66% {
+            transform: rotateZ(240deg);
+        }
+        99.9% {
+            transform: rotateZ(359.9deg);
+        }
+    }
+}
+
+@layer defenition {
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: var(--primary-color-g1);
+    }
+      
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--primary-color-g5);
+        border: 3px solid var(--primary-color-g1);
+        border-radius: 20px;
+        width: 10px;
+    }
+      
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-color-g6);
+    }
+
+    body {
+        margin: 0%;
+        padding: 0%;
+
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--primary-color-g9);
+
+        overflow-x: hidden;
+        overflow-y: initial;
+    }
+
+    a {
+        color: var(--primary-color-g9);
+    }
+}
+
+@media (max-width: 860px) {
+    @layer base {
+        .menu {
+            width: 100%;
+            height: 13dvh;
+    
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            background-color: var(--primary-color-g1);
+        }
+    
+        .menu-icon {
+            width: 12dvh;
+            height: 12dvh;
+
+            margin-left: calc(50% - 6vh);
+
+            transition: 1s margin-left;
+        }
+
+        .menu.open-menu .menu-icon {
+            margin-left: 5%;
+        }
+
+        .menu-items {
+            width: 100%;
+            height: 0vh;
+
+            position: absolute;
+            top: 12.9vh;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            
+            overflow: hidden;
+
+            transition: 1s height;
+            
+            background-color: var(--primary-color-g1);
+        }
+
+        .menu.open-menu .menu-items {
+            height: 87.1vh;
+        }
+
+        body {
+            transition: 0s height;
+        }
+
+        body.open-menu {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .menu-item {
+            font-size: 1.3em;
+
+            text-decoration: none;
+
+            color: var(--primary-color-g6);
+
+            margin: 1vh 0vw;
+            margin-left: 5%;
+
+            transition: 100ms color;
+        }
+
+        .menu-item:hover {
+            color: var(--primary-color-g9);
+        }
+        
+        .menu-item-last {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+
+            margin-top: 10%;
+        }
+
+        .menu-photo {
+            border-radius: 50%;
+
+            width: 10vh;
+            height: 10vh;
+
+            margin-right: 4vw;
+        }
+
+        .menu-name {
+            font-size: 1em;
+        }
+
+        .footer {
+            width: 100%;
+            height: 26vh;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+
+            background-color: var(--primary-color-g6);
+        }
+
+        .footer-icon {
+            width: 12vh;
+            height: 12vh;
+        }
+
+        .footer-icon.rotate {
+            animation: rotate infinite 5s linear;
+        }
+
+        .footer-column {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+
+            display: none;
+        }
+
+        .footer-column:nth-child(1), .footer-column:nth-child(2) {
+            display: flex;
+        }
+
+        .footer-name {
+            text-align: center;
+            color: var(--primary-color);
+
+            width: 100%;
+        }
+
+        .footer-item {
+            text-decoration: none;
+            color: var(--primary-color-g4);
+
+            transition: 500ms color;
+        }
+
+        .footer-item:hover {
+            color: var(--primary-color-g5);
+        }
+
+        .content {
+            min-height: 87vh;
+        }
+    }
+}
+
+@media (min-width: 861px) {
+    @layer base {
+        .menu {
+            width: 100%;
+            height: 13dvh;
+    
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
+
+            background-color: var(--primary-color-g1);
+        }
+    
+        .menu-icon {
+            width: 12dvh;
+            height: 12dvh;
+
+            margin-left: 2vw;
+        }
+
+        .menu-items {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
+            
+            overflow: hidden;
+
+            transition: 1s height;
+            
+            background-color: var(--primary-color-g1);
+        }
+
+        .menu-item {
+            font-size: 1.2em;
+            text-decoration: none;
+            color: var(--primary-color-g6);
+
+            margin-left: 2%;
+
+            transition: 100ms color;
+        }
+
+        .menu-item:hover {
+            color: var(--primary-color-g9);
+        }
+        
+        .menu-item-last {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+
+            margin-left: auto;
+            margin-right: 1vw;
+        }
+
+        .menu-photo {
+            border-radius: 50%;
+
+            width: 10vh;
+            height: 10vh;
+
+            margin-right: 1vw;
+        }
+
+        .menu-name {
+            font-size: 1em;
+
+            width: 0vw;
+
+            transition: 1s width;
+            overflow: hidden;
+        }
+
+        .menu-item-last:hover .menu-name {
+            width: var(--to-expand);
+        }
+
+        .footer {
+            width: 100%;
+            height: 26vh;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+
+            background-color: var(--primary-color-g6);
+        }
+
+        .footer-icon {
+            width: 12vh;
+            height: 12vh;
+        }
+
+        .footer-icon.rotate {
+            animation: rotate infinite 5s linear;
+        }
+
+        .footer-column {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .footer-name {
+            text-align: center;
+            color: var(--primary-color);
+
+            width: 100%;
+        }
+
+        .footer-item {
+            text-decoration: none;
+            color: var(--primary-color-g4);
+
+            transition: 500ms color;
+        }
+
+        .footer-item:hover {
+            color: var(--primary-color-g5);
+        }
+
+        .content {
+            min-height: 87vh;
+        }
+    }
+}
